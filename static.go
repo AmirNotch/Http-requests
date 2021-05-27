@@ -9,7 +9,7 @@ func handler(w http.ResponseWriter,r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	w.Write([]byte(`
 		Hello World! <br />
-		<img src= "data/anotation/image/859375.jpg" />
+		<img src= "/data/image/gopher.png" />
     `))
 }
 
@@ -18,7 +18,7 @@ func main() {
 
 	staticHandler := http.StripPrefix(
 		"/data/",
-		http.FileServer(http.Dir("./image")),
+		http.FileServer(http.Dir("./httpRequest")),
 	)
 	http.Handle("/data/", staticHandler)
 
